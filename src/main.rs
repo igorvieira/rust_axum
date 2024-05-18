@@ -13,7 +13,12 @@ async fn main() {
         .route("/", get(hello))
         .route("/health_check", get(health_check));
 
-    let addr = SocketAddr::from(([127,0,0,1], 3000));
+    let port = std::env::var("PORT")
+        .ok()
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(3000);
+
+    let addr = SocketAddr::from(([127,0,0,1], port));
 
     println!("Server is running on: {} 🍋", addr);
 
