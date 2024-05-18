@@ -1,4 +1,4 @@
-FROM rust:1.78 as build
+FROM rust:1.71 as build
 
 RUN USER=root cargo new --bin rust_axum
 WORKDIR /rust_axum
