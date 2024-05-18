@@ -18,7 +18,7 @@ async fn main() {
         .and_then(|s| s.parse().ok())
         .unwrap_or(3000);
 
-    let addr = SocketAddr::from(([127,0,0,1], port));
+    let addr = SocketAddr::from(([0,0,0,0], port));
 
     println!("Server is running on: {} 🍋", addr);
 
