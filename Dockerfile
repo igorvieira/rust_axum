@@ -13,7 +13,7 @@ COPY ./src ./src
 RUN rm ./target/release/deps/rust_axum*
 RUN cargo build --release
 
-FROM debian:buster-slim
+FROM debian:bullseye
 COPY --from=build /rust_axum/target/release/rust_axum .
 
 CMD ["./rust_axum"]
